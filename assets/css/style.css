@@ -1,0 +1,32 @@
+body, html {
+    height: 100%;
+  }
+  .bg {
+    /* The image used */
+    background-image: url("http://orig01.deviantart.net/ada4/f/2012/030/7/f/battle_bases_01bg_hd_by_xalien95-d4o49yb.png");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  #fontstyle, h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 46px;
+  }
+  
+  .btn-warning, h7 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 16px;
+  }
+  
+  h2 {
+    font-family: 'Permanent Marker', cursive;
+  }
+  .jumbotron {
+      background-color: whitesmoke !important; 
+  }
