@@ -25,7 +25,7 @@
             //shortened reset block for when player loses
             var block8 = '<button type="button" id="reset" class="btn btn-lg btn-warning">RESET</button>';
             //background music block
-            var block9 = '<audio autoplay loop  id="playAudio"><source src="./assets/audio/background2.mp3"></audio>';
+            var block9 = '<iframe src="assets/audio/background2.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe><audio autoplay loop  id="playAudio"><source src="assets/audio/background2.mp3"></audio>';
             
             var mainplayer, enemy;
             var player_assigned = false;   //can only pick one mainplayer after a player is picked
