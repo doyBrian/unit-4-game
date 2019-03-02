@@ -25,7 +25,8 @@
             //shortened reset block for when player loses
             var block8 = '<button type="button" id="reset" class="btn btn-lg btn-warning">RESET</button>';
             //background music block
-            var block9 = '<iframe src="assets/audio/background2.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe><audio autoplay loop  id="playAudio"><source src="assets/audio/background2.mp3"></audio>';
+            var block9 = '<audio autoplay loop  id="playAudio"><source src="assets/audio/background2.mp3"></audio>';
+                        //<iframe src="assets/audio/background2.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
             
             var mainplayer, enemy;
             var player_assigned = false;   //can only pick one mainplayer after a player is picked
@@ -36,7 +37,8 @@
             var bg_music, sound_effect;
     
             $(document).ready(function(){
-    
+              
+              //intro page
               $("#players").append(block1, block2, block3, block4);
     
               for (let i = 0; i < players.length; i++) {
@@ -45,11 +47,12 @@
               }
     
               $("#enemies").append(block7);
-    
+              
+              //when go or start button is pressed
               $("#begin").click(function() {
     
                 $("iframe").remove();
-                $("audio").remove();
+                //$("audio").remove();
                 $("#intro").remove();
                 $("body").append(block9);
                 start_game();
@@ -68,7 +71,8 @@
                         $("#health" + (i+1)).append("Health: " + players[i].HP);
                     }
               $("#enemies").append(block5); 
-    
+              
+              //when main player is clicked
               $(".btnID").click(function() {
     
                 if (!player_assigned) {
@@ -118,30 +122,21 @@
                   mainplayer_display();
                   challengers_display();             
                 }
+                
+                //when opponent is clicked
+                $(".btnID").click(function() {
+                  if (!fighter_picked) {
+                  var btnid1 = $(this).attr("data-buttonID");
+                  enemy_chosen(btnid1);
     
-                switch (btnid) {
-                  case '1':
-                  $("#name2").click(enemy_chosen);
-                  $("#name3").click(enemy_chosen);
-                  $("#name4").click(enemy_chosen);
-                  break;
-                  case '2':
-                  $("#name1").click(enemy_chosen);
-                  $("#name3").click(enemy_chosen);
-                  $("#name4").click(enemy_chosen);
-                  break;
-                  case '3':
-                  $("#name1").click(enemy_chosen);
-                  $("#name2").click(enemy_chosen);
-                  $("#name4").click(enemy_chosen);
-                  break;
-                  case '4':
-                  $("#name1").click(enemy_chosen);
-                  $("#name2").click(enemy_chosen);
-                  $("#name3").click(enemy_chosen);
-                  break;
-                }
-    
+                  }
+                  mainplayer_display();
+                  enemy_display(); 
+                  fighter_picked = true;
+                  attack_ready = true;
+                });
+                
+                //when attack button is clicked
                 $("#attack").click(attack);
                 
               }); 
@@ -203,12 +198,8 @@
             }
     
             //settings when enemy is chosen
-            function enemy_chosen() {
-    
-              if (!fighter_picked){
-    
-                var btnid2 = $(this).attr("data-buttonID");
-    
+            function enemy_chosen(btnid2) {
+  
                 switch (btnid2) {
                     case '1':
                     sound_effect = new sound("./assets/audio/Pika_Pika_Happy.mp3");
@@ -231,38 +222,25 @@
                   enemy = players[btnid2-1];
                   temp_HP2 = enemy.HP;
     
-                  switch (btnid2) {
-                    case '1':
-                    $("#player1").remove();
-                    $("#cage").append(block1);
-                    $("#power1").empty();
-                    $("#power1").append("Counter Power: " + enemy.CAP);
-                    break;
-                    case '2':
-                    $("#player2").remove();
-                    $("#cage").append(block2);
-                    $("#power2").empty();
-                    $("#power2").append("Counter Power: " + enemy.CAP);
-                    break;
-                    case '3':
-                    $("#player3").remove();
-                    $("#cage").append(block3);
-                    $("#power3").empty();
-                    $("#power3").append("Counter Power: " + enemy.CAP);
-                    break;
-                    case '4':
-                    $("#player4").remove();
-                    $("#cage").append(block4);
-                    $("#power4").empty();
-                    $("#power4").append("Counter Power: " + enemy.CAP);
-                    break;
-                  } 
-    
-                  mainplayer_display();
-                  enemy_display(); 
-                  fighter_picked = true;
-                  attack_ready = true;
-              }
+                  $("#player" + btnid2).remove();
+
+              switch (btnid2) {
+                case '1':
+                $("#cage").append(block1);
+                break;
+                case '2':
+                $("#cage").append(block2);
+                break;
+                case '3':
+                $("#cage").append(block3);
+                break;
+                case '4':
+                $("#cage").append(block4);
+                break;
+              } 
+
+              $("#power" + btnid2).empty();
+              $("#power" + btnid2).append("Counter Power: " + enemy.CAP);
               
             }
     

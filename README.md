@@ -11,7 +11,7 @@ In this project, I have created another fun and interactive game for web browser
 
 * When the game starts, the player will choose a character by clicking on the fighter's picture. That character's distinct sound will play once chosen. The player will fight as that character for the rest of the game. A flag is set up so when you click on the chosen player after it has been initially clicked, no action will performed.
 
-* The ones not chosen will automatically become the enemies which will be collectively in a separate area of the screen. The player must try to defeat all of the remaining fighters. 
+* The ones not chosen will automatically become the enemies which will be collectively in a separate section of the screen. The player must try to defeat all of the remaining fighters. 
 
 * The player chooses an opponent by clicking on an enemy's picture. That character's distinct sound will play once chosen.
 
@@ -47,4 +47,9 @@ In this project, I have created another fun and interactive game for web browser
 * A winning player must pick their characters wisely by first fighting an enemy with low `Counter Attack Power`. This will allow them to grind `Attack Power` and to take on enemies before they lose all of their `Health Points`. 
 
 * Players may win or lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
+
+* The concept of the game was inspired by the popularity of Pokemon. The pokemon characters appear in trading cards (and video games) and each have their respective stats which are used to help determine wins/loss when battling opponents.
+
+* Because of the "card" concept, I was able to use the card format in bootstrap to display the characters in my layout. Found this sample layout and used some of the coding for the game's layout.  (https://getbootstrap.com/docs/4.0/examples/album/#)
+
 
