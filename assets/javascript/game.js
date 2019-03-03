@@ -10,7 +10,7 @@
     
             //necessary html elements and contents saved as blocks for easy coding
     
-            //player card blocks
+            //player card html code blocks
             var block1 = '<div id="player1" class="col-md-3"><div class="card mb-4 box-shadow border border-primary"><img class="card-img-top" src="./assets/images/pikachu.jpg" width="200" height="200" alt="Card image cap"><div class="card-body"><h7 id="power1"></h7><div class="d-flex justify-content-between align-items-center"><button id="name1" data-buttonID ="1" type="button" class="btn btn-sm btn-warning btnID"></button><h7 id="health1"></h7></div></div></div></div>';
             var block2 = '<div id="player2" class="col-md-3"><div class="card mb-4 box-shadow border border-primary"><img class="card-img-top" src="https://www.wikihow.com/images/thumb/3/33/Draw-Jigglypuff-Final.jpg/-crop-224-192-224px-nowatermark-Draw-Jigglypuff-Final.jpg" width="200" height="200" alt="Card image cap"><div class="card-body"><h7 id="power2"></h7><div class="d-flex justify-content-between align-items-center"><button id="name2" data-buttonID ="2" type="button" class="btn btn-sm btn-warning btnID"></button><h7 id="health2"></h7></div></div></div></div>';
             var block3 = '<div id="player3" class="col-md-3"><div class="card mb-4 box-shadow border border-primary"><img class="card-img-top" src="https://www.wikihow.com/images/thumb/8/89/Draw-Pictures-of-Pokemon-Step-30.jpg/-crop-224-192-224px-nowatermark-Draw-Pictures-of-Pokemon-Step-30.jpg" width="200" height="200" alt="Card image cap"><div class="card-body"><h7 id="power3"></h7><div class="d-flex justify-content-between align-items-center"><button id="name3" data-buttonID ="3"  type="button" class="btn btn-sm btn-warning btnID"></button><h7 id="health3"></h7></div></div></div></div>';
@@ -50,7 +50,7 @@
               
               //when go or start button is pressed
               $("#begin").click(function() {
-    
+
                 $("iframe").remove();
                 //$("audio").remove();
                 $("#intro").remove();
@@ -76,6 +76,7 @@
               $(".btnID").click(function() {
     
                 if (!player_assigned) {
+  
                   var btnid = $(this).attr("data-buttonID");
     
                   switch (btnid) {
@@ -127,13 +128,15 @@
                 $(".btnID").click(function() {
                   if (!fighter_picked) {
                   var btnid1 = $(this).attr("data-buttonID");
-                  enemy_chosen(btnid1);
-    
+                    if (btnid1 != btnid) {       //ensures mainplayer's button gets excluded
+                      enemy_chosen(btnid1);
+                      mainplayer_display();
+                      enemy_display(); 
+                      fighter_picked = true;
+                      attack_ready = true;
+                    } 
                   }
-                  mainplayer_display();
-                  enemy_display(); 
-                  fighter_picked = true;
-                  attack_ready = true;
+                  
                 });
                 
                 //when attack button is clicked
@@ -189,6 +192,7 @@
                 }
     
                 if (enemies_left === 0) {
+                  fighter_picked = true;
                   $("#attack").append(block8);               
                   $("#reset").click(reset);   
                 }  
