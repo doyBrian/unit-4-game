@@ -176,7 +176,7 @@
                     fighter_picked = false; 
                     attack_ready = false;
                     enemies_left--;
-                    remove_enemy();
+                    setTimeout(remove_enemy, 1000);
                   } else {
                     $("#attack-btn").hide();
                     $("#status").empty();
@@ -187,7 +187,7 @@
                     fighter_picked = false; 
                     attack_ready = false;
                     enemies_left--;
-                    remove_enemy();
+                    setTimeout(remove_enemy, 1000);
                   }
                 }
     
