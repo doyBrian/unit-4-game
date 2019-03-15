@@ -1,6 +1,10 @@
 # unit-4-game
 RPG (Role Playing Game)
 
+### Deployed Site Link
+https://doybrian.github.io/unit-4-game/
+
+
 ### Overview
 
 In this project, I have created another fun and interactive game for web browsers. This app dynamically updates HTML pages with the jQuery library.
